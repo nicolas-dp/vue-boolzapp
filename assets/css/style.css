@@ -5,3 +5,26 @@
 }
 
 
+.container{
+    width: 880px;
+    height: 90vh;
+    margin: 2rem auto;
+    background-color: aqua;
+    display: flex;
+}
+
+
+.left{
+    background-color: violet;
+    width: 30%;
+    height: 100%;
+}
+
+.right{
+    width: 70%;
+    height: 100%;
+    background-color: yellow;
+    
+}
+
+
