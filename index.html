@@ -44,38 +44,11 @@
                     <!-- Lista conversazioni -->
                 </div>
                 <div class="main_list_conversation">
-                    <ul>
-                        <li>
-                            <img src="./assets/img/avatar_1.jpg" alt="">
+                    <ul style="overflow-x: hidden;">
+                        <li v-for="(contact, index) in contacts">
+                            <img :src="contact.avatar" alt="...">
                             <div class="text_conversation">
-                                <span>Michele</span>
-                                <p>Ultimo messaggio inviato</p>
-                                <p class="ora">12:00</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img src="./assets/img/avatar_1.jpg" alt="">
-                            <div class="text_conversation">
-                                <span>Michele</span>
-                                <p>Ultimo messaggio inviato</p>
-                                <p class="ora">12:00</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img src="./assets/img/avatar_1.jpg" alt="">
-                            <div class="text_conversation">
-                                <span>Michele</span>
-                                <p>Ultimo messaggio inviato</p>
-                                <p class="ora">12:00</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img src="./assets/img/avatar_1.jpg" alt="">
-                            <div class="text_conversation">
-                                <span>Michele</span>
+                                <span>{{contact.name}}</span>
                                 <p>Ultimo messaggio inviato</p>
                                 <p class="ora">12:00</p>
                             </div>

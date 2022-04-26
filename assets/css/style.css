@@ -137,6 +137,7 @@ i{
 .main_list_conversation{
     background-color: white;
     height: calc(100% - 172.5px);
+    overflow-y: auto;
 }
 
 
@@ -158,7 +159,7 @@ i{
 
 .ora{
     position: absolute;
-    left: 17rem;
+    left: 16rem;
     top: 0;
 }
 

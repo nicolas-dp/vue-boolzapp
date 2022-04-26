@@ -6,7 +6,7 @@ const app = new Vue({
         contacts: [
             {
                 name: 'Michele',
-                avatar: '_1',
+                avatar: 'assets/img/_1.jpg',
                 visible: true,
                 messages: [
                     {
@@ -28,7 +28,7 @@ const app = new Vue({
             },
             {
                 name: 'Fabio',
-                avatar: '_2',
+                avatar: 'assets/img/_2.jpg',
                 visible: true,
                 messages: [
                     {
@@ -50,7 +50,7 @@ const app = new Vue({
             },
             {
                 name: 'Samuele',
-                avatar: '_3',
+                avatar: 'assets/img/_3.jpg',
                 visible: true,
                 messages: [
                     {
@@ -72,7 +72,7 @@ const app = new Vue({
             },
             {
                 name: 'Alessandro B.',
-                avatar: '_4',
+                avatar: 'assets/img/_4.jpg',
                 visible: true,
                 messages: [
                     {
@@ -89,7 +89,7 @@ const app = new Vue({
             },
             {
                 name: 'Alessandro L.',
-                avatar: '_5',
+                avatar: 'assets/img/_5.jpg',
                 visible: true,
                 messages: [
                     {
@@ -106,7 +106,7 @@ const app = new Vue({
             },
             {
                 name: 'Claudia',
-                avatar: '_6',
+                avatar: 'assets/img/_6.jpg',
                 visible: true,
                 messages: [
                     {
@@ -128,7 +128,7 @@ const app = new Vue({
             },
             {
                 name: 'Federico',
-                avatar: '_7',
+                avatar: 'assets/img/_7.jpg',
                 visible: true,
                 messages: [
                     {
@@ -145,7 +145,7 @@ const app = new Vue({
             },
             {
                 name: 'Davide',
-                avatar: '_8',
+                avatar: 'assets/img/_8.jpg',
                 visible: true,
                 messages: [
                     {
