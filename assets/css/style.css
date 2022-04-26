@@ -16,15 +16,37 @@
 
 .left{
     background-color: violet;
-    width: 30%;
+    width: 40%;
     height: 100%;
 }
 
 .right{
-    width: 70%;
+    width: 60%;
     height: 100%;
     background-color: yellow;
     
 }
 
+.user{
+    background-color: gray;
+    height: 50px;
+}
+
+
+.sound_notify{
+    background-color: aquamarine;
+    height: 70px;
+}
+
+
+.title_conversation, .input_text_conversation{
+    background-color: gray;
+    height: 50px;
+}
+
+.conversation{
+    background-image: url(../img/mine.jpg);
+    height: calc(100% - 100px);
+    background-size: contain;
+}
 
