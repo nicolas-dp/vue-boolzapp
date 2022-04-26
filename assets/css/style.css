@@ -1,3 +1,5 @@
+/* Utilities */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,48 +7,135 @@
 }
 
 
-.container{
+:root {
+    --title-backgroud: #EAEAEA;
+    --sound-backgroud: #8EDAFC;
+    --colortaxt-tag: #B1B1B1;
+
+
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+i{
+    color: #B1B1B1;
+}
+
+.left img {
+    border-radius: 1rem;
+}
+
+.container {
     width: 880px;
     height: 90vh;
     margin: 2rem auto;
-    background-color: aqua;
+
     display: flex;
 }
 
 
-.left{
-    background-color: violet;
+.left {
     width: 40%;
     height: 100%;
 }
 
-.right{
+.right {
     width: 60%;
     height: 100%;
     background-color: yellow;
+
+}
+
+/* ************************ */
+
+
+/* User title */
+.user, .tag>i {
+    padding: 0.5rem;
+}
+
+.tag {
+    position: relative;
+    left: 5rem;
+}
+
+
+.user {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--title-backgroud);
+}
+
+/* ************************ */
+
+/* Sound notify new message */
+.sound_notify {
+    background-color: var(--sound-backgroud);
+    /* height: 70px; */
+    display: flex;
+    padding: 1rem;
+}
+
+.sound_notify>i{
+    background-color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    color: var(--sound-backgroud);
+    padding: 0.7rem;
     
 }
 
-.user{
+
+.text_sound{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sound_notify a{
+    color: rgb(103, 103, 103);    
+}
+/* ************************ */
+
+/* Input search */
+.input_search {
+    background-color: var(--title-backgroud);
+    padding: 0.5rem;
+    display: flex;
+}
+
+.input_search>div{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.443);
+}
+.input_search i{
+    font-size: 1rem;
+    padding: 0.5rem;
+   
+}
+.input_search input{
+    width: 18.5rem;
+    border: none;
+    padding: 0.5rem;
+}
+
+.title_conversation, .input_text_conversation {
     background-color: gray;
     height: 50px;
 }
 
-
-.sound_notify{
-    background-color: aquamarine;
-    height: 70px;
-}
-
-
-.title_conversation, .input_text_conversation{
-    background-color: gray;
-    height: 50px;
-}
-
-.conversation{
+.conversation {
     background-image: url(../img/mine.jpg);
     height: calc(100% - 100px);
     background-size: contain;
 }
-
