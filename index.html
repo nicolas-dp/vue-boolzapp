@@ -74,20 +74,13 @@
                     </div>
                 </div>
                 <div class="conversation">
-                    <div class="container_2" v-for="text in contacts[activeContact].messages"
-                        :class="contacts[activeContact].staus == sent ? 'main_text': 'auto_text' ">
-                        <div>
+                    <div class="container_2" v-for="text in contacts[activeContact].messages">
+                        <div :class="text.status == 'sent' ? 'main_text' : 'auto_text' ">
                             <p>
                                 {{text.message}}
                             </p>
 
                         </div>
-                        <!--  <div class="main_text">
-                    
-                        </div> -->
-
-
-
 
                     </div>
                 </div>
