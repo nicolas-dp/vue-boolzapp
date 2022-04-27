@@ -63,7 +63,7 @@
                 <div class="title_conversation user">
                     <img :src="src + contacts[activeContact].avatar + extention" alt="...">
                     <div class="text_conversation">
-                        
+
                         <span>{{contacts[activeContact].name}}</span>
                         <p>Ultimo accesso oggi alle 12:00</p>
                     </div>
@@ -74,24 +74,21 @@
                     </div>
                 </div>
                 <div class="conversation">
-                    <div class="container_2" v-for="msg in messages">
-                        <div class="auto_text">
+                    <div class="container_2" v-for="text in contacts[activeContact].messages"
+                        :class="contacts[activeContact].staus == sent ? 'main_text': 'auto_text' ">
+                        <div>
                             <p>
-                                {{msg.message}}
-                             </p>
+                                {{text.message}}
+                            </p>
 
-                            <div class="main_text">
-                                <p>
-                                    
-                                    
-
-                                </p>
-    
-                            </div> 
-                            
-                            
-                            
                         </div>
+                        <!--  <div class="main_text">
+                    
+                        </div> -->
+
+
+
+
                     </div>
                 </div>
                 <div class="input_text_conversation">
