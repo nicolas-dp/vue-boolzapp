@@ -67,12 +67,17 @@
                         <span>{{contacts[activeContact].name}}</span>
                         <p>Ultimo accesso oggi alle 12:00</p>
                     </div>
+                    <div class="right_emoticon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
                 </div>
                 <div class="conversation">
-                    <div class="container_2" v-for="message in messages">
+                    <div class="container_2" v-for="msg in messages">
                         <div class="auto_text">
                             <p>
-                                {{message.message}}
+                                {{msg.message[activeContact]}}
                              </p>
 
                             <div class="main_text">
@@ -90,7 +95,9 @@
                     </div>
                 </div>
                 <div class="input_text_conversation">
-
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
         </div>

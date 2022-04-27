@@ -10,8 +10,6 @@ const app = new Vue({
     data: {
         src: "assets/img/",
         extention: ".jpg",
-        messageSend: [],
-        messageReceived: [],
         activeContact: 0,
         contacts: [
             {

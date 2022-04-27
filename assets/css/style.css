@@ -62,11 +62,11 @@ i{
 .user {
     padding: 0.5rem;
 }
-.tag>i:hover{
+.tag>i:hover, .right_emoticon>i:hover{
     color: #6d6d6d;
 }
 
-.tag>i {
+.tag>i, .right_emoticon>i {
     padding-left: 0.8rem;
 }
 
@@ -75,7 +75,10 @@ i{
     left: 5rem;
 }
 
-
+.right_emoticon{
+    position: absolute;
+    left: 68rem;
+}
 .user {
     display: flex;
     flex-wrap: wrap;
@@ -179,10 +182,22 @@ i{
     color: var(--colortaxt-tag);
 }
 .input_text_conversation {
-    background-color: gray;
+    background-color: var(--title-backgroud);
     height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
+
+.input_text_conversation>input{
+    border: none;
+    border-radius: 5px;
+    width: 85%;
+    height: 35px;
+}
 .conversation {
     background-image: url(../img/mine.jpg);
     height: calc(100% - 100px);
