@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>BoolZapp</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -46,7 +46,7 @@
                 <div class="main_list_conversation">
                     <ul style="overflow-x: hidden;">
                         <li v-for="(contact, index) in contacts">
-                            <img :src="contact.avatar" alt="...">
+                            <img :src="src + contact.avatar + extention" alt="...">
                             <div class="text_conversation">
                                 <span>{{contact.name}}</span>
                                 <p>Ultimo messaggio inviato</p>
@@ -59,23 +59,35 @@
             </div>
 
             <div class="right">
-                <div class="title_conversation">
-                    <!-- Inizio parte destra con dettagli conversazione chat -->
+                <!-- Inizio parte destra con dettagli conversazione chat -->
+                <div class="title_conversation user">
+                    <img :src="contacts[0].avatar" alt="...">
+                    <div class="text_conversation">
+                        
+                        <span>{{contacts[0].name}}</span>
+                        <p>Ultimo accesso oggi alle 12:00</p>
+                    </div>
                 </div>
                 <div class="conversation">
                     <div class="container_2">
-                        <div class="main_text">
-                            <p>Ciao a tutti</p>
+                        
 
-                        </div>
+                        <div class="auto_text" v-for="(contact, index) in contacts">
 
-                        <div class="auto_text">
                             <p>
-                                Ciao sono il testo automatico
-                                <span>
-                                    13.45
-                                </span>
-                            </p>
+                                
+                             </p>
+
+                            <div class="main_text">
+                                <p>
+                                    
+                                    
+
+                                </p>
+    
+                            </div> 
+                            
+                            
                             
                         </div>
                     </div>

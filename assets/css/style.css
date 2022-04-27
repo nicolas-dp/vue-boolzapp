@@ -32,7 +32,7 @@ i{
     color: #B1B1B1;
 }
 
-.left img {
+.left img , .right img{
     border-radius: 1rem;
 }
 
@@ -47,13 +47,11 @@ i{
 
 .left {
     width: 40%;
-    height: 100%;
+    
 }
 
 .right {
     width: 60%;
-    height: 100%;
-    background-color: yellow;
 
 }
 
@@ -61,8 +59,15 @@ i{
 
 
 /* User title */
-.user, .tag>i {
+.user {
     padding: 0.5rem;
+}
+.tag>i:hover{
+    color: #6d6d6d;
+}
+
+.tag>i {
+    padding-left: 0.8rem;
 }
 
 .tag {
@@ -136,7 +141,7 @@ i{
 
 .main_list_conversation{
     background-color: white;
-    height: calc(100% - 172.5px);
+    height: calc(100% - 175px);
     overflow-y: auto;
 }
 
@@ -165,7 +170,15 @@ i{
 
 /* ******************* */
 
-.title_conversation, .input_text_conversation {
+.title_conversation{
+    padding: 0.5rem;
+}
+
+.title_conversation p{
+    font-size: 10px;
+    color: var(--colortaxt-tag);
+}
+.input_text_conversation {
     background-color: gray;
     height: 50px;
 }
@@ -211,12 +224,6 @@ i{
     flex-direction: column;
     align-items: flex-start;
     display: inline-block;
-    position: relative;
+    
 }
 
-.auto_text span{
-    position: absolute;
-    font-size: 9px;
-    right: 30px;
-    top: 59px;
-}
