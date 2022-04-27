@@ -45,7 +45,7 @@
                 </div>
                 <div class="main_list_conversation">
                     <ul style="overflow-x: hidden;">
-                        <li v-for="(contact, index) in contacts" @click="selectContact(index)">
+                        <li v-for="(contact, index) in contacts" @click="selectContact(index)" :class="activeContact == index ? 'active' : ' '">
                             <img :src="src + contact.avatar + extention" alt="...">
                             <div class="text_conversation">
                                 <span>{{contact.name}}</span>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="conversation">
                     <div class="container_2" v-for="text in contacts[activeContact].messages">
-                        <div :class="text.status == 'sent' ? 'main_text' : 'auto_text' " :v-model="newMessage">
+                        <div :class="text.status == 'sent' ? 'main_text' : 'auto_text'" :v-model="newMessage">
                             <p>
                                 {{text.message}}
                                 <br>
