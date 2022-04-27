@@ -52,7 +52,7 @@ i{
 
 .right {
     width: 60%;
-
+    overflow-y: hidden;
 }
 
 /* ************************ */
@@ -150,6 +150,15 @@ i{
     overflow-y: auto;
 }
 
+.main_list_conversation li:hover{
+    background-color: #6d6d6d24;
+    
+}
+
+.active{
+    background-color: #6d6d6d24;
+    
+}
 
 .main_list_conversation li{
     padding: 1rem;
@@ -204,6 +213,7 @@ i{
     background-image: url(../img/mine.jpg);
     height: calc(100% - 100px);
     background-size: contain;
+    overflow-y: auto;
 }
 
 .container_2{
@@ -232,7 +242,7 @@ i{
 }
 
 .auto_text{
-    
+    margin:0.5rem;
     background-color: white;
     border-radius: 0.5rem;
     font-size: 13px;
@@ -241,7 +251,7 @@ i{
     flex-direction: column;
     align-items: flex-start;
     display: inline-block;
-    margin-bottom: 0.5rem;
+    
     
 }
 

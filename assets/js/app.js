@@ -4,20 +4,22 @@ Replica della grafica con la possibilità di avere messaggi scritti dall’utent
 Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto */
 
 const app = new Vue({
-    
+
     el: "#app",
 
     data: {
         src: "assets/img/",
         extention: ".jpg",
         activeContact: 0,
+        newMessage: '',
+        
         contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
                 messages: [
-                    
+
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
@@ -35,9 +37,9 @@ const app = new Vue({
                     }
                 ],
 
-                
+
             },
-            
+
             {
                 name: 'Fabio',
                 avatar: '_2',
@@ -179,19 +181,64 @@ const app = new Vue({
             }
         ]
 
-     },
-
+    },
+    /* Milestone 2
+    Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+    Click sul contatto mostra la conversazione del contatto cliccato */
     methods: {
 
-        selectContact(index){
-                this.activeContact = index;
-                }
-                
+        selectContact(index) {
+            this.activeContact = index;
+        },
+        /* Milestone 3
+            Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+            “enter” il testo viene aggiunto al thread sopra, come messaggio verde */
+        addMessage(activeContact, newMessage) {
+            const d = new Date();
+            const giorno_attuale = d.getDate() + "/" + parseInt(d.getMonth()+ 1) + "/" + d.getFullYear();
+            const ora_attuale = d.getHours() + ":" + d.getMinutes();
+
+            console.log(giorno_attuale);
+            console.log(ora_attuale);
+            if (this.newMessage == "") {
+                alert("devi inserire almeno un carattere")
+            } else {
+
+                console.log(this.newMessage);
+                this.contacts[activeContact].messages.push(
+                    {
+                        date: giorno_attuale + " " + ora_attuale,
+                        message: this.newMessage,
+                        status: 'sent'
+                    }
+                )
+                console.log(this.messages);
+
+                this.newMessage = ''
             }
-                
+
+            setTimeout(reply =>{
+                this.contacts[activeContact].messages.push(
+                    {
+                        date: giorno_attuale + " " + ora_attuale,
+                        message: 'OK!!',
+                        status: 'received'
+                    })
+
+            }, 1000)
+            
+        }
+
+    }
+
 })
 
 
-/* Milestone 2
-Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
-Click sul contatto mostra la conversazione del contatto cliccato */
+
+
+/* Milestone 3
+Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+“enter” il testo viene aggiunto al thread sopra, come messaggio verde
+
+Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+un “ok” come risposta, che apparirà dopo 1 secondo. */

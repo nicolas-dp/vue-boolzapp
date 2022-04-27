@@ -36,10 +36,10 @@
                     </div>
                 </div>
                 <!-- Ricerca input-->
-                <div class="input_search">
+                <div class="input_search" >
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" name="search" id="search">
+                        <input type="search" name="search" id="search" @onkeyup="ricerca(contact)">
                     </div>
                     <!-- Lista conversazioni -->
                 </div>
@@ -75,22 +75,26 @@
                 </div>
                 <div class="conversation">
                     <div class="container_2" v-for="text in contacts[activeContact].messages">
-                        <div :class="text.status == 'sent' ? 'main_text' : 'auto_text' ">
+                        <div :class="text.status == 'sent' ? 'main_text' : 'auto_text' " :v-model="newMessage">
                             <p>
                                 {{text.message}}
                                 <br>
                                 <small>
                                     {{text.date}}
                                 </small>
+
                             </p>
-                            
+
                         </div>
 
                     </div>
                 </div>
                 <div class="input_text_conversation">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder=" Scrivi un messaggio">
+                    <input type="text" placeholder=" Scrivi un messaggio" 
+                    v-model="newMessage"
+                    @keyup.enter="addMessage(activeContact, newMessage)">
+                    
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
