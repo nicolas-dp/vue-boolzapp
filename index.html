@@ -45,7 +45,7 @@
                 </div>
                 <div class="main_list_conversation">
                     <ul style="overflow-x: hidden;">
-                        <li v-for="(contact, index) in contacts">
+                        <li v-for="(contact, index) in contacts" @click="selectContact(index)">
                             <img :src="src + contact.avatar + extention" alt="...">
                             <div class="text_conversation">
                                 <span>{{contact.name}}</span>
@@ -61,21 +61,18 @@
             <div class="right">
                 <!-- Inizio parte destra con dettagli conversazione chat -->
                 <div class="title_conversation user">
-                    <img :src="contacts[0].avatar" alt="...">
+                    <img :src="src + contacts[activeContact].avatar + extention" alt="...">
                     <div class="text_conversation">
                         
-                        <span>{{contacts[0].name}}</span>
+                        <span>{{contacts[activeContact].name}}</span>
                         <p>Ultimo accesso oggi alle 12:00</p>
                     </div>
                 </div>
                 <div class="conversation">
-                    <div class="container_2">
-                        
-
-                        <div class="auto_text" v-for="(contact, index) in contacts">
-
+                    <div class="container_2" v-for="message in messages">
+                        <div class="auto_text">
                             <p>
-                                
+                                {{message.message}}
                              </p>
 
                             <div class="main_text">

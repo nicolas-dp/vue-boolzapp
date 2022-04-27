@@ -12,6 +12,7 @@ const app = new Vue({
         extention: ".jpg",
         messageSend: [],
         messageReceived: [],
+        activeContact: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -184,10 +185,12 @@ const app = new Vue({
 
     methods: {
 
-        
-
-    }
-    
+        selectContact(index){
+                this.activeContact = index;
+                }
+                
+            }
+                
 })
 
 
