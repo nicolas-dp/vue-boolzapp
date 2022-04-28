@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>BoolZapp</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -36,7 +37,7 @@
                     </div>
                 </div>
                 <!-- Ricerca input-->
-                <div class="input_search" >
+                <div class="input_search">
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="search" name="search" id="search" @onkeyup="ricerca(contact)">
@@ -44,8 +45,9 @@
                     <!-- Lista conversazioni -->
                 </div>
                 <div class="main_list_conversation">
-                    <ul style="overflow-x: hidden;">
-                        <li v-for="(contact, index) in contacts" @click="selectContact(index)" :class="activeContact == index ? 'active' : ' '">
+                    <ul style="overflow-x: hidden;" id="myUL">
+                        <li v-for="(contact, index) in contacts" @click="selectContact(index)"
+                            :class="activeContact == index ? 'active' : ' '">
                             <img :src="src + contact.avatar + extention" alt="...">
                             <div class="text_conversation">
                                 <span>{{contact.name}}</span>
@@ -57,7 +59,7 @@
 
                 </div>
             </div>
-
+            <!-- INIZIO PARTE DESTRA -->
             <div class="right">
                 <!-- Inizio parte destra con dettagli conversazione chat -->
                 <div class="title_conversation user">
@@ -74,9 +76,12 @@
                     </div>
                 </div>
                 <div class="conversation">
-                    <div class="container_2" v-for="text in contacts[activeContact].messages">
+                    <div class="container_2" v-for="(text, index) in contacts[activeContact].messages">
                         <div :class="text.status == 'sent' ? 'main_text' : 'auto_text'" :v-model="newMessage">
                             <p>
+
+                                <i class="fa-solid fa-angle-down" @click="removeMessage(activeContact, index)"></i>
+                                <!-- Click sull icon e cancella l'oggetto dall'array -->
                                 {{text.message}}
                                 <br>
                                 <small>
@@ -91,10 +96,9 @@
                 </div>
                 <div class="input_text_conversation">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder=" Scrivi un messaggio" 
-                    v-model="newMessage"
-                    @keyup.enter="addMessage(activeContact, newMessage)">
-                    
+                    <input type="text" placeholder=" Scrivi un messaggio" v-model="newMessage"
+                        @keyup.enter="addMessage(activeContact, newMessage)">
+
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>

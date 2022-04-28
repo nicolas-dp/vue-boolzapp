@@ -16,7 +16,7 @@
 
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: cadetblue;
 }
@@ -28,11 +28,11 @@ img {
     height: 30px;
 }
 
-i{
+i {
     color: #B1B1B1;
 }
 
-.left img , .right img{
+.left img, .right img {
     border-radius: 1rem;
 }
 
@@ -47,7 +47,7 @@ i{
 
 .left {
     width: 40%;
-    
+
 }
 
 .right {
@@ -62,7 +62,8 @@ i{
 .user {
     padding: 0.5rem;
 }
-.tag>i:hover, .right_emoticon>i:hover{
+
+.tag>i:hover, .right_emoticon>i:hover {
     color: #6d6d6d;
 }
 
@@ -75,10 +76,11 @@ i{
     left: 5rem;
 }
 
-.right_emoticon{
+.right_emoticon {
     position: absolute;
     left: 68rem;
 }
+
 .user {
     display: flex;
     flex-wrap: wrap;
@@ -96,7 +98,7 @@ i{
     padding: 1rem;
 }
 
-.sound_notify>i{
+.sound_notify>i {
     background-color: white;
     font-size: 15px;
     text-align: center;
@@ -104,20 +106,21 @@ i{
     color: var(--sound-backgroud);
     margin-right: 0.5rem;
     padding: 0.7rem;
-    
+
 }
 
 
-.text_sound{
+.text_sound {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.sound_notify a{
-    color: rgb(103, 103, 103);    
+.sound_notify a {
+    color: rgb(103, 103, 103);
 }
+
 /* ************************ */
 
 /* Input search */
@@ -127,16 +130,18 @@ i{
     display: flex;
 }
 
-.input_search>div{
+.input_search>div {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.443);
 }
-.input_search i{
+
+.input_search i {
     font-size: 1rem;
     padding: 0.5rem;
-   
+
 }
-.input_search input{
+
+.input_search input {
     width: 18.5rem;
     border: none;
     padding: 0.5rem;
@@ -144,39 +149,39 @@ i{
 
 /* List name conversation */
 
-.main_list_conversation{
+.main_list_conversation {
     background-color: white;
     height: calc(100% - 171px);
     overflow-y: auto;
 }
 
-.main_list_conversation li:hover{
+.main_list_conversation li:hover {
     background-color: #6d6d6d24;
-    
+
 }
 
-.active{
+.active {
     background-color: #6d6d6d4c;
-    
+
 }
 
-.main_list_conversation li{
+.main_list_conversation li {
     padding: 1rem;
     list-style: none;
     display: flex;
 }
 
-.main_list_conversation p{
+.main_list_conversation p {
     font-size: 10px;
     color: var(--colortaxt-tag);
 }
 
-.text_conversation{
+.text_conversation {
     padding-left: 0.5rem;
     position: relative;
 }
 
-.ora{
+.ora {
     position: absolute;
     left: 16rem;
     top: 0;
@@ -184,14 +189,15 @@ i{
 
 /* ******************* */
 
-.title_conversation{
+.title_conversation {
     padding: 0.5rem;
 }
 
-.title_conversation p{
+.title_conversation p {
     font-size: 10px;
     color: var(--colortaxt-tag);
 }
+
 .input_text_conversation {
     background-color: var(--title-backgroud);
     height: 50px;
@@ -203,12 +209,13 @@ i{
 }
 
 
-.input_text_conversation>input{
+.input_text_conversation>input {
     border: none;
     border-radius: 5px;
     width: 85%;
     height: 35px;
 }
+
 .conversation {
     background-image: url(../img/mine.jpg);
     height: calc(100% - 100px);
@@ -216,46 +223,58 @@ i{
     overflow-y: auto;
 }
 
-.container_2{
+.container_2 {
     margin: auto;
     position: relative;
 }
 
-.main_text{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.main_text {
     padding: 1.5rem;
-    
+    display: flex;
+    justify-content: flex-end;
+
 }
 
-.main_text>p{
+.main_text p {
     background-color: var(--bgcolor-text-wha);
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     font-size: 13px;
     border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
 }
 
-.auto_text>p{
-    margin-bottom: 0.5rem;
-}
-
-.auto_text{
-    margin:0.5rem;
+.auto_text p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
     background-color: white;
     border-radius: 0.5rem;
     font-size: 13px;
     padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    display: inline-block;
-    
-    
 }
 
-p>small{
-    font-size: smaller;
+.auto_text {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    display: inline-block;
 }
+
+.container_2 i {
+    opacity: 0;
+
+}
+.container_2 p:hover i {
+    opacity: 1;
+}
+
+
+
+/* Dropdown menu a tendina */
+
 

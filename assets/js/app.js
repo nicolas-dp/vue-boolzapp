@@ -11,8 +11,9 @@ const app = new Vue({
         src: "assets/img/",
         extention: ".jpg",
         activeContact: 0,
+        activeMessage: 0,
         newMessage: '',
-        
+
         contacts: [
             {
                 name: 'Michele',
@@ -186,16 +187,18 @@ const app = new Vue({
     Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
     Click sul contatto mostra la conversazione del contatto cliccato */
     methods: {
-
-        selectContact(index) {
+        
+         selectContact(index) {
             this.activeContact = index;
+
+            console.log(this.activeContact);
         },
         /* Milestone 3
             Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
             “enter” il testo viene aggiunto al thread sopra, come messaggio verde */
         addMessage(activeContact, newMessage) {
             const d = new Date();
-            const giorno_attuale = d.getDate() + "/" + parseInt(d.getMonth()+ 1) + "/" + d.getFullYear();
+            const giorno_attuale = d.getDate() + "/" + parseInt(d.getMonth() + 1) + "/" + d.getFullYear();
             const ora_attuale = d.getHours() + ":" + d.getMinutes();
 
             console.log(giorno_attuale);
@@ -217,7 +220,7 @@ const app = new Vue({
                 this.newMessage = ''
             }
 
-            setTimeout(reply =>{
+            setTimeout(reply => {
                 this.contacts[activeContact].messages.push(
                     {
                         date: giorno_attuale + " " + ora_attuale,
@@ -226,7 +229,24 @@ const app = new Vue({
                     })
 
             }, 1000)
-            
+
+        },
+
+        ricerca(activeContact) {
+            let input = document.getElementById("search").value
+            let elemento = this.contacts[activeContact].name;
+            elemento.filter()
+
+
+        },
+
+        removeMessage(activeContact, index) {
+            //console.log(this.contacts[index].messages)
+            //console.log(index);
+            let contatore = 0;  
+            console.log(this.contacts[activeContact].messages.length);
+            this.contacts[activeContact].messages.splice(index, contatore + 1)
+            console.log(this.contacts[activeContact].messages);
         }
 
     }
