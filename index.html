@@ -40,7 +40,7 @@
                 <div class="input_search">
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" name="search" id="search" @onkeyup="ricerca(contact)">
+                        <input type="search" name="search" id="search" @keyup.enter="ricerca(activeContact)" >
                     </div>
                     <!-- Lista conversazioni -->
                 </div>
@@ -67,7 +67,7 @@
                     <div class="text_conversation">
 
                         <span>{{contacts[activeContact].name}}</span>
-                        <p>Ultimo accesso oggi alle 12:00</p>
+                        <p>Ultimo accesso oggia alle ore 12:00</p>
                     </div>
                     <div class="right_emoticon">
                         <i class="fa-solid fa-magnifying-glass"></i>

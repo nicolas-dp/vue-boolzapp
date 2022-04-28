@@ -234,10 +234,20 @@ const app = new Vue({
 
         ricerca(activeContact) {
             let input = document.getElementById("search").value
-            let elemento = this.contacts[activeContact].name;
-            elemento.filter()
-
-
+            for (let i = 0; i < input.length; i++) {
+                const elementParola = input[i];
+                console.log(elementParola);
+                if (this.contacts[activeContact].name.includes(elementParola)) {
+                    this.contacts[activeContact].visible = true
+                    //console.log(this.contacts[activeContact].visible);
+                } else {
+                    this.contacts[activeContact].visible = false
+                }
+                
+                console.log(this.contacts[activeContact].visible);
+                
+            }
+    
         },
 
         removeMessage(activeContact, index) {
@@ -247,8 +257,9 @@ const app = new Vue({
             console.log(this.contacts[activeContact].messages.length);
             this.contacts[activeContact].messages.splice(index, contatore + 1)
             console.log(this.contacts[activeContact].messages);
-        }
+        },
 
+        
     }
 
 })
