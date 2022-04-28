@@ -40,19 +40,22 @@
                 <div class="input_search">
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" name="search" id="search" @keyup.enter="ricerca(activeContact)" >
+                        <input type="search" name="search" id="search" @keyup="ricerca()" v-model="text_value">
                     </div>
                     <!-- Lista conversazioni -->
                 </div>
                 <div class="main_list_conversation">
                     <ul style="overflow-x: hidden;" id="myUL">
                         <li v-for="(contact, index) in contacts" @click="selectContact(index)"
-                            :class="activeContact == index ? 'active' : ' '">
+                            :class="activeContact == index ? 'active' : ' '" v-if="contact.visible">
                             <img :src="src + contact.avatar + extention" alt="...">
                             <div class="text_conversation">
                                 <span>{{contact.name}}</span>
                                 <p>Ultimo messaggio inviato</p>
-                                <p class="ora">12:00</p>
+                                <p class="ora" v-for="(date , index) in contacts[index].messages" v-if="date.status === 'received' ">
+
+                                    {{date.date}}
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -67,7 +70,7 @@
                     <div class="text_conversation">
 
                         <span>{{contacts[activeContact].name}}</span>
-                        <p>Ultimo accesso oggia alle ore 12:00</p>
+                        <p>Ultimo accesso {{contacts[activeContact].messages[1].date}}</p>
                     </div>
                     <div class="right_emoticon">
                         <i class="fa-solid fa-magnifying-glass"></i>

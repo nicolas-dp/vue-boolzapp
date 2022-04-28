@@ -13,6 +13,8 @@ const app = new Vue({
         activeContact: 0,
         activeMessage: 0,
         newMessage: '',
+        text_value: '',
+        last_element: '',
 
         contacts: [
             {
@@ -187,8 +189,8 @@ const app = new Vue({
     Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
     Click sul contatto mostra la conversazione del contatto cliccato */
     methods: {
-        
-         selectContact(index) {
+
+        selectContact(index) {
             this.activeContact = index;
 
             console.log(this.activeContact);
@@ -201,13 +203,19 @@ const app = new Vue({
             const giorno_attuale = d.getDate() + "/" + parseInt(d.getMonth() + 1) + "/" + d.getFullYear();
             const ora_attuale = d.getHours() + ":" + d.getMinutes();
 
-            console.log(giorno_attuale);
-            console.log(ora_attuale);
-            if (this.newMessage == "") {
+            //console.log(giorno_attuale);
+            //console.log(ora_attuale);
+
+            /* Controllo per non far inserire all'utente un messaggio vuoto o degli spazi */
+            if (this.newMessage == "" || this.newMessage.charAt(0) == " ") {
+
+                //console.log(this.newMessage); 
                 alert("devi inserire almeno un carattere")
+                this.newMessage = "";
+
             } else {
 
-                console.log(this.newMessage);
+                //console.log(this.newMessage);
                 this.contacts[activeContact].messages.push(
                     {
                         date: giorno_attuale + " " + ora_attuale,
@@ -218,58 +226,51 @@ const app = new Vue({
                 console.log(this.messages);
 
                 this.newMessage = ''
+
+                setTimeout(reply => {
+                    this.contacts[activeContact].messages.push(
+                        {
+                            date: giorno_attuale + " " + ora_attuale,
+                            message: 'OK!!',
+                            status: 'received'
+                        })
+
+                }, 1000)
             }
 
-            setTimeout(reply => {
-                this.contacts[activeContact].messages.push(
-                    {
-                        date: giorno_attuale + " " + ora_attuale,
-                        message: 'OK!!',
-                        status: 'received'
-                    })
 
-            }, 1000)
 
         },
+        /*  Milestone 4
+            Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+            contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+            “mar” rimangono solo Marco e Martina */
+        ricerca() {
+            let input = this.text_value.toLowerCase();
 
-        ricerca(activeContact) {
-            let input = document.getElementById("search").value
-            for (let i = 0; i < input.length; i++) {
-                const elementParola = input[i];
-                console.log(elementParola);
-                if (this.contacts[activeContact].name.includes(elementParola)) {
-                    this.contacts[activeContact].visible = true
-                    //console.log(this.contacts[activeContact].visible);
+            this.contacts.forEach(element => {
+                let nome = element.name.toLowerCase()
+                if (nome.includes(input)) {
+                    element.visible = true;
                 } else {
-                    this.contacts[activeContact].visible = false
+                    element.visible = false;
                 }
-                
-                console.log(this.contacts[activeContact].visible);
-                
-            }
-    
-        },
+                console.log(nome);
+            });
 
+        },
+        /* Milestone 5 - opzionale
+            Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
+            permette di cancellare il messaggio selezionato */
         removeMessage(activeContact, index) {
             //console.log(this.contacts[index].messages)
             //console.log(index);
-            let contatore = 0;  
+            let contatore = 0;
             console.log(this.contacts[activeContact].messages.length);
             this.contacts[activeContact].messages.splice(index, contatore + 1)
             console.log(this.contacts[activeContact].messages);
         },
 
-        
     }
 
 })
-
-
-
-
-/* Milestone 3
-Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-“enter” il testo viene aggiunto al thread sopra, come messaggio verde
-
-Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
-un “ok” come risposta, che apparirà dopo 1 secondo. */
